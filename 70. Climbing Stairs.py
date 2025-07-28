@@ -36,4 +36,3 @@ class Solution(object):
 sol = Solution()
 print(sol.climbStairs(2)) # Expected output: 2
 print(sol.climbStairs(3)) # Expected output: 3
-
