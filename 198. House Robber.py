@@ -19,25 +19,25 @@
 # Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1).
 # Total amount you can rob = 2 + 9 + 1 = 12.
 
-def rob(nums):
-    """
-    :type nums: List[int]
-    :rtype: int
-    """
-    if(len(nums) == 0):
-            return 0
-    if(len(nums) == 1):
-        return nums[0]
+class Solution():
+    def rob(nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if(len(nums) == 0):
+                return 0
+        if(len(nums) == 1):
+            return nums[0]
 
-    dp0 = nums[0]
-    dp1 = max(nums[0], nums[1])
-    for i in range(2, len(nums)):
-        current = max(dp1, dp0 + nums[i])
-        dp0, dp1 = dp1, current
-    return dp1
-
-        
+        dp0 = nums[0]
+        dp1 = max(nums[0], nums[1])
+        for i in range(2, len(nums)):
+            current = max(dp1, dp0 + nums[i])
+            dp0, dp1 = dp1, current
+        return dp1
     
 # test cases:
-print(rob([1,2,3,1])) # Expected output: 4
-print(rob([2,7,9,3,1])) # Expected output: 12
+sol = Solution()
+print(sol.rob([1,2,3,1])) # Expected output: 4
+print(sol.rob([2,7,9,3,1])) # Expected output: 12
