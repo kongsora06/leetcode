@@ -31,15 +31,18 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
+        if not nums:
+            return 0
+        
         count = Counter(nums)
         max_num = max(nums)
 
         dp0, dp1 = 0, count[1] * 1
         for i in range(2, max_num + 1):
-            points = count[i] * i
-            current = max(dp1, dp0 + points)
-            dp0, dp1 = dp1, current
-        return dp1 
+            points = count[i] * i   # calculated the points
+            current = max(dp1, dp0 + points)    # find the max amount
+            dp0, dp1 = dp1, current # shift one space ahead
+        return dp1  # the bigger number shifts to dp1
             
 # test cases 
 sol = Solution()
